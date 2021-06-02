@@ -1,0 +1,26 @@
+@import '~@angular/material/theming';
+@import "src/variables";
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.example-container {
+  min-height: 90vh !important;
+  margin: 18px !important;
+  -moz-box-shadow: 0 0 38px 3px #6bb3e3;
+  -webkit-box-shadow: 0 0 38px 3px #6bb3e3;
+  box-shadow: 0 0 38px 3px #6bb3e3;
+  overflow: auto;
+  background-color: mat-color($accentPalette);
+}
+
+.menu-item {
+  color: #ffffff;
+}
+
+.side-nav {
+  background-color: mat-color($primaryPalette);
+}
+
+

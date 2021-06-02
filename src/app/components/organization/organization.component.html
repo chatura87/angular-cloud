@@ -1,0 +1,86 @@
+<mat-card aria-label="form" class="mat-card">
+  <mat-card-header class="mat-card-header-text">
+    <mat-card-title>
+      {{'routes.organization'| translate}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{'organization.create-org' | translate}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="organizationFrom" (ngSubmit)="onSubmit()">
+      <div style="float: left;width: 50%" fxLayout="column">
+        <mat-form-field appearance="outline">
+          <mat-label>{{'organization.full-name'| translate}}</mat-label>
+          <label>
+            <input matInput name="full name" formControlName="fullName" maxlength="75">
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{'organization.code'| translate}}</mat-label>
+          <label>
+            <input matInput name="code" formControlName="code" maxlength="25">
+          </label>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column">
+        <mat-form-field appearance="outline">
+          <mat-label>{{'organization.type'| translate}}</mat-label>
+          <mat-select formControlName="type">
+            <mat-option [value]="item.name"
+                        *ngFor="let item of (organizationTypes | enumToArray)let i= index;">{{item.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{'organization.status'| translate}}</mat-label>
+          <mat-select formControlName="recStatus">
+            <mat-option [value]="item.name"
+                        *ngFor="let item of (recStatus | enumToArray)let i= index;">{{item.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-card-actions class="footer">
+        <button type="submit" mat-raised-button color="primary">
+          <mat-icon>save_alt</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" (click)="resetModule()">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-card-actions>
+      <p class="error-msg" *ngIf="this.errorMsg">{{errorMsg}}</p>
+<!--      <p class="success-msg" *ngIf="this.successMsg">{{this.successMsg}}</p>-->
+    </form>
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>{{'filter'| translate}}</mat-label>
+      <input matInput placeholder="{{'organization.table-ph'| translate}}" (keyup)="applyFilter($event)">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'organization.code'| translate}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'organization.full-name'| translate}}  </th>
+        <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'organization.type'| translate}}  </th>
+        <td mat-cell *matCellDef="let element"> {{organizationTypes[element.type]}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'organization.status'| translate}}  </th>
+        <td mat-cell *matCellDef="let element"> {{recStatus[element.recStatus]}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayColumns" (click)="populateFields(row)"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-card-content>
+</mat-card>

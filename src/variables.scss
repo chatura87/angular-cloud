@@ -1,0 +1,6 @@
+@import "~@angular/material/theming";
+
+$warnPalette:    mat-palette($mat-red);
+$primaryPalette: mat-palette($mat-teal);
+$accentPalette: mat-palette($mat-teal,50);
+$menuItemColor: mat-palette($mat-teal,50);

@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="openSideNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{'title'| translate}}</span>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sidenav mode="side" role="navigation" [opened]=true class="side-nav">
+    <mat-nav-list >
+      <a mat-list-item class="menu-item" routerLink="organization">{{'routes.organization' | translate}}</a>
+      <a mat-list-item class="menu-item" routerLink="user">{{'routes.user' | translate}}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

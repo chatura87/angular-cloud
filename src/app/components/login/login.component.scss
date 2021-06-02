@@ -1,0 +1,76 @@
+@import '~@angular/material/theming';
+@import "src/variables";
+
+.login-container {
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  display: flex;
+}
+
+form {
+  width: 100%;
+}
+
+.login-content {
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+}
+
+.login-toolbar {
+  justify-content: center;
+}
+
+.login-button {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.sign-up-button {
+  width: 45%;
+  margin-top: 15px;
+  margin-right: 10%;
+}
+
+.reset-button {
+  width: 45%;
+  margin-top: 15px;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 11px;
+  padding-top: 10px;
+  color: mat-color($primaryPalette);
+}
+
+.error-msg {
+  color: mat-color($warnPalette);
+  text-align: center;
+}
+
+.success-msg {
+  color: mat-color($primaryPalette);
+}
+
+.mat-card.border-top {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.mat-toolbar.border-top {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.mat-toolbar:not([class*=mat-elevation-z]) {
+  box-shadow: 0 2px 1px -1px rgb(139, 195, 74),
+  0 1px 1px 0 rgb(139, 195, 74),
+  0 1px 2px 0 rgb(139, 195, 74);
+}
+
+.email {
+  line-height: 1px;
+}
+

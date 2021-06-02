@@ -1,0 +1,6 @@
+export enum ErrorStatusCode {
+  LOGIN_USER_NOT_FOUND = 100,
+  USER_ALREADY_EXISTS = 101,
+  DUPLICATE_CODE = 102,
+  NO_ERRORS = 0
+}

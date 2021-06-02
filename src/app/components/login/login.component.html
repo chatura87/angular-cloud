@@ -1,0 +1,36 @@
+<div class="login-container">
+  <div class="login-content">
+    <mat-toolbar class="login-toolbar border-top" color="primary" [ngClass]="errorMessage ? 'error-border':''">Loan gear
+    </mat-toolbar>
+    <mat-card class="border-top" [ngClass]="errorMessage ? 'error-border':''">
+      <form #loginForm="ngForm">
+        <mat-card-content>
+          <mat-form-field appearance="outline">
+            <mat-icon matPrefix>person_outline</mat-icon>
+            <mat-label>{{'login.email'| translate}}</mat-label>
+            <input matInput ngModel name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                   autocomplete="disabled" required class="email">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-icon matPrefix>lock_outline</mat-icon>
+            <mat-label>{{'login.pwd'| translate}}</mat-label>
+            <input matInput placeholder="Password" type="password" ngModel name="password" required>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" class="login-button"
+                  (click)="logIn(loginForm)">{{'login.log-in-button'| translate}}
+          </button>
+          <button mat-stroked-button color="primary" class="sign-up-button"
+                  (click)="signUp()">{{'login.sign-up-button'| translate}}
+          </button>
+          <button mat-stroked-button color="accent" class="reset-button"
+                  (click)="resetPassword()">{{'login.reset-button'| translate}}
+          </button>
+        </mat-card-content>
+        <ng-container *ngIf="errorMessage"><p class="error-msg">{{errorMessage}}</ng-container>
+      </form>
+      <p class="copyright">Copyright &#169; 2003-2021 Aexis Medical. All rights reserved</p>
+    </mat-card>
+  </div>
+</div>

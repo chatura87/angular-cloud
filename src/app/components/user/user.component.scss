@@ -1,0 +1,61 @@
+@import 'node_modules/@angular/material/theming';
+@import "src/variables";
+
+.mat-card-header-text {
+  display: flex;
+}
+
+.mat-form-field {
+  width: 90%;
+  display: block;
+}
+
+.mat-card {
+  background-color: mat-color($accentPalette);
+  padding-left: 25px;
+}
+
+.footer {
+  width: 95.5%;
+  text-align: right;
+}
+
+.mat-card-actions {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.mat-table {
+  width: 95%;
+  /* row border */
+  border: 1px solid mat-color($primaryPalette);
+}
+
+.mat-paginator {
+  width: 95%;
+  justify-content: center;
+}
+
+.search-field {
+  width: 45%;
+}
+
+.mat-row:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: mat-color($accentPalette);
+}
+
+.mat-row:hover {
+  background-color: mat-color($primaryPalette);
+}
+
+.error-msg {
+  color: mat-color($warnPalette);
+}
+
+.success-msg {
+  color: mat-color($primaryPalette);
+}

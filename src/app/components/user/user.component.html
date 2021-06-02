@@ -1,0 +1,112 @@
+<mat-card aria-label="form" class="mat-card">
+  <mat-card-header class="mat-card-header-text">
+    <mat-card-title>
+      {{'routes.user'| translate}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{'user.create-user' | translate}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div style="float: left;width: 50%" fxLayout="column">
+        <mat-form-field appearance="outline">
+          <mat-label>{{'user.full-name'| translate}}</mat-label>
+          <label>
+            <input matInput name="full name" formControlName="fullName" maxlength="75">
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{'user.username'| translate}}</mat-label>
+          <label>
+            <input matInput name="username" formControlName="login" maxlength="25">
+          </label>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{'user.password'| translate}}</mat-label>
+          <input matInput type="password" formControlName="password" maxlength="75">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{'user.contact'| translate}}</mat-label>
+          <input matInput type="text" formControlName="mobilePhone" maxlength="25">
+        </mat-form-field>
+      </div>
+      <div fxLayout="column">
+        <mat-form-field appearance="outline">
+          <mat-label>{{'user.type'| translate}}</mat-label>
+          <mat-select formControlName="userType">
+            <mat-option [value]="item.name"
+                        *ngFor="let item of (userTypes | enumToArray)let i= index;">{{item.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{'sign-up.organization'| translate}}</mat-label>
+          <mat-select formControlName="organization">
+            <mat-option [value]="item.code"
+                        *ngFor="let item of ((getOrganizationState | async).organizations);let i=index">{{item.fullName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{'sign-up.language'| translate}}</mat-label>
+          <mat-select formControlName="language">
+            <mat-option [value]="i" *ngFor="let item of languages | enumToArray;let i=index">{{item.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{'organization.status'| translate}}</mat-label>
+          <mat-select formControlName="recStatus">
+            <mat-option [value]="item.name"
+                        *ngFor="let item of (recStatus | enumToArray)let i= index;">{{item.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+      <mat-card-actions class="footer">
+        <button type="submit" mat-raised-button color="primary">
+          <mat-icon>save_alt</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" (click)="resetModule()">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-card-actions>
+      <p class="error-msg" *ngIf="this.errorMsg">{{errorMsg}}</p>
+      <!--      <p class="success-msg" *ngIf="this.successMsg">{{this.successMsg}}</p>-->
+    </form>
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>{{'filter'| translate}}</mat-label>
+      <input matInput placeholder="{{'user.table-ph'| translate}}" (keyup)="applyFilter($event)">
+    </mat-form-field>
+
+    <!--  table -->
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'user.table.username'| translate}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'user.table.name'| translate}}  </th>
+        <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'user.table.type'| translate}}  </th>
+        <td mat-cell *matCellDef="let element"> {{userTypes[element.userType]}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'user.table.status'| translate}}  </th>
+        <td mat-cell *matCellDef="let element"> {{recStatus[element.recStatus]}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayColumns" (click)="populateFields(row)"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-card-content>
+</mat-card>

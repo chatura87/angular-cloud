@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0 2px 1px -1px rgba(0,150,136,255),
+  0 1px 1px 0 rgba(0,150,136,255),
+  0 1px 2px 0 rgba(0,150,136,255);
+}
+
+.mat-form-field {
+  width: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.mat-card.error-border {
+  box-shadow: 0 2px 1px -1px rgb(252, 3, 102),
+  0 1px 2px 0 rgb(252, 3, 102),
+  0 1px 2px 0 rgb(252, 3, 102);
+}
+
+.mat-toolbar.error-border {
+  box-shadow: 0 2px 1px -1px rgb(252, 3, 102),
+  0 1px 1px 0 rgb(252, 3, 102),
+  0 1px 2px 0 rgb(252, 3, 102);
+}
+
+.right-align {
+  float: right;
+}
+
+body{
+  background: url('src/assets/images/background1.jpg');
+}

@@ -1,0 +1,63 @@
+<div class="sign-container">
+  <div class="content">
+    <mat-toolbar color="primary" class="toolbar border-top" [ngClass]="errorMessage ? 'error-border':''">{{'sign-up.title'| translate}}
+    </mat-toolbar>
+    <div class="login-wrapper">
+      <mat-card class="border-top" [ngClass]="errorMessage ? 'error-border':''">
+        <form [formGroup]="registerFrom" (ngSubmit)="onSubmit()" class="form-co">
+          <mat-card-content>
+            <mat-form-field>
+              <mat-label>{{'sign-up.full-name'| translate}}</mat-label>
+              <input matInput name="full name" formControlName="fullName" maxlength="150">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>{{'sign-up.username'| translate}}</mat-label>
+              <input matInput name="username" formControlName="username" maxlength="75">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>{{'sign-up.password'| translate}}</mat-label>
+              <input matInput type="password" formControlName="password" maxlength="75">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{'sign-up.contact'| translate}}</mat-label>
+              <input matInput type="text" formControlName="contact" maxlength="25">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>{{'sign-up.user-type'| translate}}</mat-label>
+              <mat-select formControlName="userType">
+                <mat-option [value]="i" *ngFor="let item of roles | enumToArray;let i=index">{{item.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{'sign-up.organization'| translate}}</mat-label>
+              <mat-select formControlName="organization">
+                <mat-option [value]="i" *ngFor="let item of roles | enumToArray;let i=index">{{item.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{'sign-up.language'| translate}}</mat-label>
+              <mat-select formControlName="language">
+                <mat-option [value]="item.name" *ngFor="let item of languages | enumToArray;let i=index">{{item.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <re-captcha formControlName="recaptchaReactive"
+                        siteKey="6Lfo0pcaAAAAAH9ufytN6_T1TuDHj_L6dSCe8Z8F"></re-captcha>
+          </mat-card-content>
+
+          <button mat-raised-button color="primary"
+                  [disabled]="registerFrom.invalid">{{'sign-up.register-button'| translate}}</button>
+        </form>
+        <p *ngIf="errorMessage" class="error-msg"> {{errorMessage}}</p>
+        <p *ngIf="successMessage" class="success-msg"> {{successMessage}}<a
+          routerLink="/login">{{'login-link'| translate}}</a></p>
+        <p class="copyright">Copyright &#169; 2003-2021 Aexis Medical. All rights reserved</p>
+      </mat-card>
+    </div>
+  </div>
+</div>

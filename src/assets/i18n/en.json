@@ -1,0 +1,70 @@
+{
+  "title": "Loan Gear",
+  "change-language": "Change Language",
+  "login-link": "login",
+  "filter": "Search",
+  "recod-save-success": "Record saved successfully",
+  "routes": {
+    "organization": "Organization",
+    "user": "User"
+  },
+  "login": {
+    "log-in-button": "Log in",
+    "sign-up-button": "Register",
+    "reset-button": "Reset Password",
+    "user-pwd-incorrect": "Invalid credentials or you don't have an account",
+    "email": "email",
+    "pwd": "password"
+  },
+  "sign-up": {
+    "title": "Register new user",
+    "full-name": "Name in full *",
+    "username": "Username (email) *",
+    "password": "Password *",
+    "contact": "Mobile/Phone *",
+    "user-type": "User Type *",
+    "organization": "Organization *",
+    "language": "Language *",
+    "register-button": "Register",
+    "username-already-exists": "The username you provided already exists",
+    "success-user-creation-message": "User creation successful. After the approval of the user you can "
+  },
+  "reset-password": {
+    "title": "Reset password",
+    "reset-pwd-button": "Reset password",
+    "retype": "Re-type password *",
+    "password": "Password *",
+    "username": "Username (email) *",
+    "success-link-sent-message": "Password reset link sent to your email.",
+    "success-reset-message": "Password reset successful. please ",
+    "email-not-found": "Email address not found.",
+    "password-not-match": "Passwords do not match",
+    "password-reset-fail": "Password reset fail. please try again"
+  },
+  "organization": {
+    "create-org": "Create/update organization",
+    "full-name": "Organization Name",
+    "code": "Organization code",
+    "type": "Organization type",
+    "status": "Status",
+    "table-ph": "start typing name, code or organization type",
+    "code-exists": "Organization code already exists. Please use another code"
+  },
+  "user": {
+    "create-user": "Create/update user",
+    "full-name": "Full Name *",
+    "username": "Username *",
+    "type": "User type *",
+    "status": "Status",
+    "table-ph": "start typing name, code or user type",
+    "username-exists": "Username already exists. Please change",
+    "contact": "Mobile/Phone *",
+    "password": "Password *",
+    "table": {
+      "name": "Full name",
+      "username": "Username",
+      "type": "Type",
+      "status": "Status"
+    }
+  }
+}
