@@ -1,6 +1,7 @@
+@use '~@angular/material' as mat;
 @import "~@angular/material/theming";
 
-$warnPalette:    mat-palette($mat-red);
-$primaryPalette: mat-palette($mat-teal);
-$accentPalette: mat-palette($mat-teal,50);
-$menuItemColor: mat-palette($mat-teal,50);
+$warnPalette:    mat.define-palette(mat.$red-palette);
+$primaryPalette: mat.define-palette(mat.$teal-palette);
+$accentPalette: mat.define-palette(mat.$teal-palette,50);
+$menuItemColor: mat.define-palette(mat.$teal-palette,50);

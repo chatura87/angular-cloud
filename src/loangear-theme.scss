@@ -1,16 +1,17 @@
+@use '~@angular/material' as mat;
 @import '~@angular/material/theming';
 
-@include mat-core();
+@include mat.core();
 
-$loangear-theme-primary: mat-palette($mat-teal);
-$loangear-theme-accent: mat-palette($mat-light-green, 300, A100, A400);
-$loangear-theme-warn: mat-palette($mat-red);
+$loangear-theme-primary: mat.define-palette(mat.$teal-palette);
+$loangear-theme-accent: mat.define-palette(mat.$light-green-palette, 300, A100, A400);
+$loangear-theme-warn: mat.define-palette(mat.$red-palette);
 
 
-$loangear-theme: mat-light-theme(
+$loangear-theme: mat.define-light-theme(
     $loangear-theme-primary,
     $loangear-theme-accent,
     $loangear-theme-warn,
 );
 
-@include angular-material-theme($loangear-theme);
+@include mat.all-component-themes($loangear-theme);
