@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {AuthService} from '../../services/auth.service';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {
@@ -11,6 +10,7 @@ import {
   SendLinkFail,
   SendLinkSuccess
 } from '../actions/reset-password.actions';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable()
 export class ResetPasswordEffects {

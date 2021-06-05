@@ -1,5 +1,6 @@
 import {Action} from '@ngrx/store';
-import {Organization} from '../../models/organization';
+import { Organization } from 'src/app/models/organization';
+
 
 export enum OrganizationAction {
   SAVE = '[Organization] Save',
