@@ -1,5 +1,6 @@
 import {Action} from '@ngrx/store';
-import {User} from '../../models/User';
+import { User } from 'src/app/models/user';
+
 
 export enum UserAction {
   SAVE = '[User] Save',
