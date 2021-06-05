@@ -1,4 +1,5 @@
-import {Organization} from '../../models/organization';
+
+import { Organization } from 'src/app/models/organization';
 import {All, OrganizationAction} from '../actions/organization.action';
 
 export interface State {

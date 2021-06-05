@@ -1,5 +1,6 @@
+import { User } from 'src/app/models/user';
 import {All, UserAction} from '../actions/user.actions';
-import {User} from '../../models/user';
+
 
 export interface State {
   // is data loaded?
