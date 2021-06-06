@@ -1,7 +1,10 @@
-runtime: custom
-env: flex
-service: angular-ui-dev
-threadsafe: true
+runtime: python27
+api_version: 1
+threadsafe: yes
 
-env_variables:
-  API_URL: "https://webapi-dev.appname.com"
+handlers:
+  - url: /
+    static_files: dist/user-dashboard-app/index.html
+    upload: dist/user-dashboard-app/index.html
+  - url: /
+    static_dir: dist/user-dashboard-app
