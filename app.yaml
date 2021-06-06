@@ -4,7 +4,7 @@ threadsafe: yes
 
 handlers:
   - url: /
-    static_files: dist/user-dashboard-app/index.html
-    upload: dist/user-dashboard-app/index.html
+    static_files: dist/longear-FE/index.html
+    upload: dist/loangear-FE/index.html
   - url: /
-    static_dir: dist/user-dashboard-app
+    static_dir: dist/loangear-FE
